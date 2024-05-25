@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مخبزنا</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>مرحبا بكم في مخبزنا</h1>
+        <div class="products">
+            <div class="product">
+                <img src="images/bread.jpg" alt="خبز">
+                <h2>خبز</h2>
+                <p>سعر: $2.00</p>
+                <button onclick="order('خبز')">اطلب الآن</button>
+            </div>
+            <div class="product">
+                <img src="images/croissant.jpg" alt="كرواسون">
+                <h2>كرواسون</h2>
+                <p>سعر: $1.50</p>
+                <button onclick="order('كرواسون')">اطلب الآن</button>
+            </div>
+            <div class="product">
+                <img src="images/cinnamon.jpg" alt="سينابون">
+                <h2>سينابون</h2>
+                <p>سعر: $3.00</p>
+                <button onclick="order('سينابون')">اطلب الآن</button>
+            </div>
+            <div class="product">
+                <img src="images/cookies.jpg" alt="كوكيز">
+                <h2>كوكيز</h2>
+                <p>سعر: $1.00</p>
+                <button onclick="order('كوكيز')">اطلب الآن</button>
+            </div>
+            <div class="product">
+                <img src="images/cake.jpg" alt="كيك">
+                <h2>كيك</h2>
+                <p>سعر: $4.00</p>
+                <button onclick="order('كيك')">اطلب الآن</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="order-form" class="order-form">
+        <form action="process.php" method="POST">
+            <h2>إجراء الطلب</h2>
+            <input type="hidden" id="product" name="product">
+            <label for="name">الاسم:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">البريد الإلكتروني:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="quantity">الكمية:</label>
+            <input type="number" id="quantity" name="quantity" required min="1">
+            <button type="submit">أرسل الطلب</button>
+        </form>
+    </div>
+
+    <script>
+        function order(product) {
+            document.getElementById('product').value = product;
+            document.getElementById('order-form').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
